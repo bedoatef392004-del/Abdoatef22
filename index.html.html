@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أبطال الترقيم | اختبار علامات الترقيم</title>
+<meta name="description" content="مغامرة تعليمية تفاعلية لتعلّم علامات الترقيم، مع أسئلة صح وخطأ وتوصيل واختيار من متعدد وتغذية راجعة فورية.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{
+  --ink:#243052;--muted:#6f7895;--purple:#7457e8;--purple2:#9878ff;--pink:#ff79b8;
+  --yellow:#ffd65a;--mint:#65dfbd;--sky:#71c8ff;--paper:#fffdf8;--line:#e8e7f5;
+  --shadow:0 18px 50px rgba(56,49,120,.13);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Cairo',Tahoma,sans-serif;color:var(--ink);background:#f5f4ff;min-height:100vh;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(1px);opacity:.65}
+body:before{width:380px;height:380px;background:#d9f8f0;top:-150px;right:-120px}
+body:after{width:420px;height:420px;background:#ffe0ef;bottom:-190px;left:-130px}
+button,input{font:inherit}
+button{cursor:pointer;border:0;transition:transform .18s,filter .18s}
+button:hover{transform:translateY(-2px);filter:brightness(1.03)}
+button:focus-visible,input:focus-visible{outline:3px solid #ffbc50;outline-offset:3px}
+.app{max-width:1100px;margin:auto;padding:22px 18px 38px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;font-size:1.2rem}
+.logo{width:54px;height:54px;border-radius:18px;background:linear-gradient(135deg,var(--purple),#a18aff);display:grid;place-items:center;color:white;font-size:1.8rem;box-shadow:0 8px 18px #8b76e855;transform:rotate(-5deg)}
+.brand small{display:block;color:var(--muted);font-size:.72rem;font-weight:700;margin-top:-3px}
+.pill{background:white;border:1px solid var(--line);border-radius:99px;padding:9px 14px;font-weight:800;font-size:.84rem;box-shadow:0 5px 15px #3430600a}
+.hero,.panel{background:rgba(255,255,255,.92);border:1px solid #fff;border-radius:30px;box-shadow:var(--shadow);overflow:hidden}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;min-height:500px}
+.hero-copy{padding:clamp(25px,5vw,58px)}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;background:#f0ecff;color:#6749d5;padding:8px 13px;border-radius:99px;font-size:.82rem;font-weight:900}
+h1{font-size:clamp(2rem,4.5vw,3.7rem);line-height:1.3;margin:16px 0 10px;font-weight:900;letter-spacing:-1px}
+h1 .color{color:var(--purple)}
+.lead{color:var(--muted);line-height:1.9;font-weight:600;max-width:540px}
+.hero-art{height:100%;min-height:350px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at 50% 45%,#fff7d7 0 18%,transparent 19%),linear-gradient(145deg,#eee9ff,#dff9f3)}
+.hero-art:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:2px dashed #b9a9ff;animation:spin 35s linear infinite}
+.hero-art:after{content:"✦     ✧      ✦";position:absolute;top:15%;right:13%;font-size:1.8rem;color:#edb633;letter-spacing:18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.character{font-size:clamp(8rem,18vw,13rem);filter:drop-shadow(0 15px 5px #6b57aa2a);z-index:1;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px) rotate(3deg)}}
+.float-tag{position:absolute;background:white;border-radius:16px;padding:10px 14px;box-shadow:0 10px 24px #5447a122;font-weight:900;z-index:2}
+.tag1{top:19%;left:9%;transform:rotate(-8deg)}.tag2{bottom:18%;right:8%;transform:rotate(6deg)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:23px}
+.field label{display:block;font-size:.84rem;font-weight:900;margin:0 0 7px}
+.field input{width:100%;border:2px solid #eeecfa;background:#fcfbff;border-radius:14px;padding:12px 14px;color:var(--ink)}
+.field input:focus{border-color:var(--purple);outline:none}
+.btn-primary{background:linear-gradient(135deg,var(--purple),#9875ff);color:white;padding:14px 23px;border-radius:16px;font-weight:900;box-shadow:0 10px 22px #8062e544}
+.btn-secondary{background:#f0edff;color:#6549d5;padding:12px 18px;border-radius:14px;font-weight:900}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.supervisors{font-size:.84rem;color:var(--muted);margin-top:17px;font-weight:700}
+.supervisors strong{color:var(--ink)}
+.game-head{padding:20px 24px 16px;margin-bottom:16px}
+.game-top{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.level-kicker{color:var(--purple);font-size:.82rem;font-weight:900}
+.level-title{font-size:1.6rem;font-weight:900;margin:1px 0}
+.stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-start}
+.stat{background:#fff9df;border:1px solid #ffedaa;border-radius:13px;padding:7px 12px;font-weight:900;white-space:nowrap}
+.progress-wrap{margin-top:15px}
+.progress-label{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;font-weight:900;margin-bottom:7px;color:var(--muted)}
+.progress-track{height:13px;background:#eeecfa;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#63dfbc,#a2e96e);border-radius:99px;transition:width .4s ease}
+.play-grid{display:grid;grid-template-columns:250px 1fr;gap:16px;align-items:stretch}
+.sidebar{padding:20px}
+.sidebar h3{margin:0 0 13px;font-size:1rem}
+.level-list{display:grid;gap:9px}
+.level-item{width:100%;text-align:right;display:flex;align-items:center;gap:10px;padding:11px;border-radius:15px;background:#f8f7ff;color:var(--ink);border:1px solid #efedfb}
+.level-item.active{background:#eee9ff;border-color:#bcaeff;box-shadow:inset -4px 0 var(--purple)}
+.level-item.locked{opacity:.55;cursor:not-allowed}
+.level-emoji{width:40px;height:40px;display:grid;place-items:center;background:white;border-radius:12px;font-size:1.4rem}
+.level-item b{display:block;font-size:.88rem}.level-item small{display:block;color:var(--muted);font-size:.72rem}
+.mini-note{margin-top:18px;background:#e9fbf5;padding:13px;border-radius:15px;color:#26775e;font-size:.82rem;font-weight:800;line-height:1.7}
+.question-panel{padding:clamp(18px,3.4vw,34px);min-height:460px;display:flex;flex-direction:column}
+.question-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:.84rem;font-weight:900}
+.question-count{background:#f1edff;color:#694bd7;padding:7px 12px;border-radius:99px}
+.question-title{font-size:clamp(1.25rem,2.5vw,1.8rem);line-height:1.7;font-weight:900;margin:22px 0 16px}
+.sentence{background:linear-gradient(135deg,#fff8df,#fffdf5);border:2px dashed #f2d77d;border-radius:20px;padding:24px 18px;text-align:center;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;line-height:1.8;margin-bottom:18px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.answer{background:#f8f7ff;border:2px solid #ece9fb;color:var(--ink);border-radius:16px;padding:14px 13px;font-weight:900;min-height:60px}
+.answer:hover{border-color:#b7a6ff;background:#f2eeff}
+.answer.correct{background:#e6fbf3;border-color:#5bd7ad;color:#197c5c}
+.answer.wrong{background:#fff0f4;border-color:#ff91ad;color:#b82e55}
+.answer:disabled{cursor:default;transform:none}
+.feedback{display:none;margin-top:15px;padding:14px 16px;border-radius:16px;line-height:1.8;font-weight:800}
+.feedback.show{display:block;animation:pop .25s ease}
+.feedback.good{background:#e6fbf3;color:#197c5c;border:1px solid #b8f0db}
+.feedback.bad{background:#fff0f4;color:#a52f53;border:1px solid #ffc4d2}
+@keyframes pop{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.question-actions{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:18px}
+.hint{font-size:.8rem;color:var(--muted);font-weight:700}
+.matching-list{display:grid;gap:10px;width:100%;margin-bottom:12px}.matching-row{display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:10px;background:#f8f7ff;border:1px solid #ece9fb;border-radius:14px;padding:10px 12px;font-weight:900}.match-select{width:100%;min-width:0;border:2px solid #e4defb;border-radius:10px;background:white;padding:9px;color:var(--ink);font:inherit;font-size:.88rem}.match-check{justify-self:start}.result{text-align:center;padding:30px 18px}
+.result-emoji{font-size:5rem}
+.result h2{font-size:2rem;margin:8px 0}
+.result p{color:var(--muted);line-height:1.9;font-weight:700}
+.result-score{display:inline-block;background:#fff7d9;padding:12px 22px;border-radius:15px;font-weight:900;margin:10px}
+.hidden{display:none!important}
+.footer{text-align:center;color:#8b8da6;font-size:.76rem;font-weight:700;margin-top:18px}
+.confetti{position:fixed;pointer-events:none;inset:0;z-index:10;overflow:hidden}
+.confetti span{position:absolute;top:-20px;font-size:22px;animation:fall 2.4s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:.2}}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero-art{min-height:250px;grid-row:1}.hero-art:before{width:190px;height:190px}.character{font-size:8rem}.hero-copy{padding:25px}.play-grid{grid-template-columns:1fr}.sidebar{padding:15px}.level-list{grid-template-columns:1fr 1fr}.mini-note{display:none}}
+@media(max-width:520px){.app{padding:13px 10px 25px}.topbar{align-items:flex-start}.brand{font-size:1rem}.logo{width:45px;height:45px}.pill{font-size:.72rem;padding:8px 10px}.form-grid{grid-template-columns:1fr}.game-top{align-items:flex-start;flex-direction:column}.stats{justify-content:flex-start}.answers{grid-template-columns:1fr}.question-panel{min-height:420px}.level-list{grid-template-columns:1fr 1fr}.level-item{padding:8px;gap:7px}.level-emoji{width:34px;height:34px}.level-item b{font-size:.78rem}.level-item small{font-size:.65rem}.question-actions{align-items:flex-start;flex-direction:column}.question-actions button{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="logo" aria-label="شعار أبطال الترقيم">؟!</div><div>أبطال الترقيم<small>نتعلّم ونلعب ونبدع ✨</small></div></div>
+    <div class="pill">📚 اللغة العربية · الصف الرابع</div>
+  </header>
+
+  <main id="intro" class="hero">
+    <section class="hero-copy">
+      <section class="panel" style="padding:18px 20px;margin:0 0 18px;box-shadow:none;border-color:#e8e7f5" aria-label="تذكّر علامات الترقيم">
+        <h2 style="margin:0 0 10px;font-size:1.15rem">📘 تذكّر علامات الترقيم</h2>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">الفاصلة (،):</strong> بين الجمل المترابطة، وبين الكلمات في التعداد.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">الفاصلة المنقوطة (؛):</strong> بين الجمل التي تربطها علاقة سبب ونتيجة.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">النقطتان الرأسيتان (:):</strong> بعد القول، وقبل التفصيل أو التوضيح.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">النقطة (.):</strong> في نهاية الجملة التامة المعنى.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">علامة الاستفهام (؟):</strong> في نهاية السؤال.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">علامة التعجب (!):</strong> للتعجب أو الدهشة أو الانفعال.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">علامتا التنصيص (« »):</strong> لتحديد الكلام المنقول عن شخص آخر.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">علامة الحذف (...):</strong> للدلالة على كلام محذوف أو غير مكتمل.</p>
+        <p style="margin:6px 0;line-height:1.8"><strong style="color:#7457e8">الشرطة (—):</strong> في الحوار للفصل بين كلام المتحدثين.</p>
+      </section>
+      <span class="eyebrow">📝 اختبار تفاعلي</span>
+      <h1>اختبر نفسك في <span class="color">علامات الترقيم!</span></h1>
+      <p class="lead">أجب عن أسئلة الاختيار من متعدد حول علامات الترقيم التسع. ستظهر لك النتيجة والتغذية الراجعة فور اختيار الإجابة.</p>
+      <div class="form-grid">
+        <div class="field"><label for="studentName">اسم البطل / الطالبة</label><input id="studentName" type="text" placeholder="اكتب اسمك هنا" maxlength="40"></div>
+        <div class="field"><label for="className">المادة</label><input id="className" value="اللغة العربية" maxlength="40"></div>
+      </div>
+      <div class="btn-row"><button class="btn-primary" id="startBtn">ابدأ المغامرة 🎮</button><button class="btn-secondary" id="exportRosterBtn" type="button">تحميل سجل الطلاب Excel 📊</button></div>
+      <div id="rosterNote" class="supervisors">عدد الأسماء المسجّلة على هذا الجهاز: <strong>0</strong> · يمكنك تحميلها في ملف يفتح ببرنامج Excel.</div>
+      <div class="supervisors">إعداد: <strong id="preparedBy">عبدالرحمن عاطف</strong><br>تحت إشراف: <strong>د. مها · د. زينب أحمد</strong></div>
+    </section>
+    <div class="hero-art" aria-label="شخصية كرتونية بطل الترقيم">
+      <div class="float-tag tag1">⭐ اجمع النجوم!</div>
+      <div class="character">🦸‍♂️</div>
+      <div class="float-tag tag2">؟ ! ، .</div>
+    </div>
+  </main>
+
+  <section id="game" class="hidden">
+    <div class="panel game-head">
+      <div class="game-top">
+        <div><div class="level-kicker" id="levelKicker">المستوى ١ من ٤</div><div class="level-title" id="levelHeading">بوابة الأبطال 🚪</div></div>
+        <div class="stats"><div class="stat">⭐ النقاط: <span id="score">0</span></div><div class="stat">🏅 النجوم: <span id="stars">0</span></div><div class="stat">❤️ المحاولات: <span id="lives">3</span></div></div>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-label"><span>شريط تقدم المغامرة</span><span id="progressText">0%</span></div>
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+      </div>
+    </div>
+    <div class="play-grid">
+      <aside class="panel sidebar">
+        <h3>🗺️ خريطة المغامرة</h3>
+        <div id="levelList" class="level-list"></div>
+        <div class="mini-note">💡 تذكّر: الخطأ فرصة جديدة للتعلّم. اقرأ التلميح وحاول مرة أخرى!</div>
+      </aside>
+      <section class="panel question-panel" id="questionPanel">
+        <div class="question-meta"><span id="topicLabel">اختبر معلوماتك</span><span class="question-count" id="questionCount">السؤال ١ من ٥</span></div>
+        <h2 class="question-title" id="questionPrompt">اختر الإجابة الصحيحة</h2>
+        <div class="sentence" id="sentence">ما أجمل الربيع</div>
+        <div id="answers" class="answers"></div>
+        <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+        <div class="question-actions"><span class="hint" id="hint">اقرأ الجملة جيدًا قبل الاختيار 👀</span><button id="nextBtn" class="btn-primary hidden">السؤال التالي ←</button></div>
+      </section>
+      <section id="resultPanel" class="panel result hidden"></section>
+    </div>
+  </section>
+  <div class="footer">صُمّم بحبّ للتعلّم والمرح ✨ · أبطال الترقيم</div>
+</div>
+<div id="confetti" class="confetti" aria-hidden="true"></div>
+
+<script>
+const levels = [
+ {name:"بوابة الأبطال",emoji:"🚪",desc:"تعرّف على العلامات",questions:[
+  {prompt:"أي علامة نضع في نهاية الجملة الخبرية التامة؟",sentence:"ذهبَ سامي إلى المدرسة ___",options:["؟","。 النقطة (.)","!","،"],correct:1,explain:"أحسنت! نضع النقطة (.) في نهاية الجملة الخبرية التامة.",hint:"الجملة تخبرنا بشيء، ولا تسأل ولا تتعجب."},
+  {prompt:"أي علامة نستخدمها في نهاية السؤال؟",sentence:"أين تسكن يا صديقي ___",options:["؟ علامة الاستفهام","، الفاصلة","! التعجب","."],correct:0,explain:"صحيح! علامة الاستفهام (؟) تأتي في نهاية السؤال.",hint:"ابحث عن كلمة تسأل عن مكان أو شخص أو شيء."},
+  {prompt:"ما العلامة المناسبة للتعبير عن الدهشة؟",sentence:"ما أجملَ الزهور ___",options:["،","؟","! علامة التعجب","."],correct:2,explain:"رائع! علامة التعجب (!) تعبّر عن الدهشة أو الفرح أو الإعجاب.",hint:"الجملة فيها إعجاب وجمال."},
+  {prompt:"أي علامة تفصل بين كلمات متتالية؟",sentence:"اشتريتُ قلمًا ___ وكتابًا ودفترًا.",options:["، الفاصلة","؟","!","."],correct:0,explain:"ممتاز! الفاصلة (،) تفصل بين الكلمات أو الجمل القصيرة المتصلة.",hint:"نحتاج وقفة قصيرة بين عناصر القائمة."},
+  {prompt:"اختر علامة الترقيم المناسبة في نهاية السؤال:",sentence:"هل أنهيت واجبك ___",options:[".","،","؟","!"],correct:2,explain:"إجابة صحيحة! لأن الجملة تسأل، نضع علامة الاستفهام (؟).",hint:"الجملة تبدأ بأداة سؤال: هل."}
+ ]},
+ {name:"المحقق الذكي",emoji:"🔎",desc:"اختر العلامة المناسبة",questions:[
+  {prompt:"اختر العلامة المناسبة للجملة:",sentence:"عاد أبي من العمل ___",options:["؟","!","،","."],correct:3,explain:"صحيح! هذه جملة خبرية تامة، وتنتهي بالنقطة.",hint:"الجملة تخبرنا بحدث عادي."},
+  {prompt:"ما العلامة المناسبة؟",sentence:"يا لها من مفاجأة ___",options:["!","؟","،","."],correct:0,explain:"أحسنت! علامة التعجب تناسب المفاجأة والدهشة.",hint:"المتكلم مندهش."},
+  {prompt:"أكمل بعلامة الترقيم المناسبة:",sentence:"متى تبدأ الحصة ___",options:[".","،","؟","!"],correct:2,explain:"ممتاز! نسأل عن وقت بداية الحصة، لذلك نستخدم علامة الاستفهام.",hint:"كلمة «متى» من أدوات الاستفهام."},
+  {prompt:"أي علامة تفصل بين أسماء الفاكهة؟",sentence:"أحب التفاح ___ والموز ___ والعنب.",options:["؟ ثم !","، ثم ،","! ثم ؟",". ثم ."],correct:1,explain:"صحيح! الفاصلة تفصل بين عناصر القائمة.",hint:"توجد عدة أسماء متتالية في الجملة."},
+  {prompt:"اختر نهاية الجملة الصحيحة:",sentence:"السماء صافية اليوم ___",options:["؟","!","،","."],correct:3,explain:"أحسنت! جملة خبرية تامة تنتهي بالنقطة.",hint:"لا يوجد سؤال أو تعجب في الجملة."}
+ ]},
+ {name:"تحدّي الجمل",emoji:"🧩",desc:"أكمل وصحّح",questions:[
+  {prompt:"اختر علامة الترقيم المناسبة بعد فعل القول:",sentence:"قالت المعلمة ___ افتحوا كتبكم.",options:["؟","،",": النقطتان الرأسيتان","."],correct:2,explain:"أحسنت! نضع النقطتين الرأسيتين (:) بعد فعل القول، ثم يأتي الكلام المنقول.",hint:"تذكّر: تأتي هذه العلامة بعد القول."},
+  {prompt:"أي جملة كُتبت بعلامة مناسبة؟",sentence:"اختر الجملة الصحيحة",options:["أين حقيبتي.","أين حقيبتي؟","أين حقيبتي!","أين، حقيبتي."],correct:1,explain:"إجابة صحيحة! الجملة سؤال، لذلك تنتهي بعلامة الاستفهام.",hint:"اسأل نفسك: هل الجملة سؤال؟"},
+  {prompt:"ما العلامة المناسبة بعد النداء الذي يحمل حماسًا؟",sentence:"يا أصدقائي ___ هيا نلعب!",options:["،","؟",".","لا نحتاج أي علامة"],correct:0,explain:"أحسنت! الفاصلة تفصل بين النداء وبقية الكلام في هذه الجملة.",hint:"تأتي وقفة قصيرة بعد «يا أصدقائي»."},
+  {prompt:"اختر العلامة المناسبة في نهاية الجملة:",sentence:"انتبه، الطريق مزدحم ___",options:["؟","!","،","."],correct:1,explain:"صحيح! علامة التعجب تناسب التحذير والتنبيه القوي هنا.",hint:"الجملة تحمل تنبيهًا."},
+  {prompt:"أي علامة تناسب نهاية جملة الأمر العادية؟",sentence:"رتّب غرفتك ___",options:["؟","،","!","."],correct:3,explain:"ممتاز! يمكن أن تنتهي جملة الأمر العادية بنقطة.",hint:"الأمر هنا هادئ وليس سؤالًا."}
+ ]},
+ {name:"بطل الترقيم",emoji:"🏆",desc:"التحدّي النهائي",questions:[
+  {prompt:"اختر العلامة المناسبة:",sentence:"كم عدد أيام الأسبوع ___",options:["؟","!","،","."],correct:0,explain:"صحيح! نسأل عن عدد الأيام، لذا نستخدم علامة الاستفهام.",hint:"«كم» أداة استفهام."},
+  {prompt:"أكمل الجملة بعلامة مناسبة:",sentence:"نجح أحمد في المسابقة ___ يا له من إنجاز!",options:["؟","،",".","لا شيء"],correct:1,explain:"رائع! الفاصلة تفصل بين الجملتين المتصلتين في هذا المثال.",hint:"بعد الخبر تأتي عبارة تعجب."},
+  {prompt:"أي علامة تدل على التعجب؟",sentence:"رائعٌ هذا الرسم ___",options:["،","؟","!","."],correct:2,explain:"أحسنت! علامة التعجب تعبّر عن الإعجاب بالرسم.",hint:"الجملة تعبّر عن إعجاب."},
+  {prompt:"اختر العلامة المناسبة بين عناصر القائمة:",sentence:"في حقيبتي كتاب ___ وقلم ___ ومسطرة.",options:["، ثم ،","؟ ثم ؟","! ثم !",". ثم ."],correct:0,explain:"صحيح! نستخدم الفاصلة للفصل بين عناصر القائمة.",hint:"أسماء أشياء متتابعة."},
+  {prompt:"السؤال الأخير! ما أفضل نهاية للجملة؟",sentence:"أحافظ على نظافة مدرستي ___",options:["؟","!","،","."],correct:3,explain:"بطل رائع! هذه جملة خبرية تامة، والنقطة مناسبة في نهايتها.",hint:"الجملة تخبرنا عن سلوك جيد."},
+  {prompt:"اختر العلامة المناسبة بين جملتين تربطهما علاقة سبب ونتيجة:",sentence:"تأخر القطار ___ لذلك وصلنا متأخرين.",options:["، الفاصلة","؛ الفاصلة المنقوطة",": النقطتان الرأسيتان","؟ علامة الاستفهام"],correct:1,explain:"أحسنت! الفاصلة المنقوطة (؛) تناسب هنا العلاقة بين السبب والنتيجة: تأخر القطار، ولذلك وصلنا متأخرين.",hint:"ابحث عن العلاقة التي توضّح سبب التأخر ونتيجته."},
+  {prompt:"أي علامة نضعها قبل التفصيل والتوضيح؟",sentence:"أحضرت ثلاثة أشياء ___ قلمًا وكتابًا ومسطرة.",options:["، الفاصلة","؛ الفاصلة المنقوطة",": النقطتان الرأسيتان","؟ علامة الاستفهام"],correct:2,explain:"صحيح! النقطتان الرأسيتان (:) تأتيان قبل التفصيل؛ وهنا يأتي تعداد الأشياء بعدهما.",hint:"بعد العبارة العامة ستأتي قائمة توضّح الأشياء."},
+  {prompt:"اختر العلامة المناسبة بين كلمات التعداد:",sentence:"في حقيبتي قلم ___ وكتاب ودفتر.",options:["، الفاصلة","؛ الفاصلة المنقوطة",": النقطتان الرأسيتان","؟ علامة الاستفهام"],correct:0,explain:"رائع! الفاصلة (،) تفصل بين الكلمات في التعداد، مثل أسماء الأشياء في الحقيبة.",hint:"هذه قائمة أشياء، ونحتاج وقفة قصيرة بين عناصرها."},
+  {prompt:"أي علامة تحدد الكلام المنقول عن شخص آخر؟",sentence:"قال أبي: ___الصدق فضيلة.___",options:["(؟)","(« ») علامتا التنصيص","(...) علامة الحذف","(—) الشرطة"],correct:1,explain:"صحيح! علامتا التنصيص (« ») تحددان الكلام المنقول عن شخص آخر.",hint:"ابحث عن العلامتين اللتين تحيطان بالكلام المنقول."},
+  {prompt:"ما العلامة التي تدل على كلام محذوف أو غير مكتمل؟",sentence:"أردت أن أخبرك بشيء، لكن...",options:["(.) النقطة","(،) الفاصلة","(...) علامة الحذف","(!) التعجب"],correct:2,explain:"أحسنت! علامة الحذف (...) تدل على كلام محذوف أو غير مكتمل.",hint:"تتكون من ثلاث نقاط متتابعة."},
+  {prompt:"أي علامة تُستخدم في الحوار للفصل بين كلام المتحدثين؟",sentence:"___ أين ذهبت؟ ___ ذهبت إلى المدرسة.",options:["(—) الشرطة","(؟) الاستفهام","(:) النقطتان الرأسيتان","(؛) الفاصلة المنقوطة"],correct:0,explain:"رائع! تُستخدم الشرطة (—) في الحوار للفصل بين كلام المتحدثين.",hint:"علامة طويلة تظهر غالبًا في بداية كلام كل متحدث."},
+  {type:"truefalse",prompt:"صح أم خطأ؟",sentence:"نستخدم علامة الاستفهام (؟) في نهاية السؤال.",options:["صح","خطأ"],correct:0,explain:"صحيح! علامة الاستفهام تأتي في نهاية السؤال.",hint:"هل الجملة تسأل عن شيء؟"},
+  {type:"truefalse",prompt:"صح أم خطأ؟",sentence:"نستخدم النقطة (.) قبل ذكر تفاصيل القائمة.",options:["صح","خطأ"],correct:1,explain:"أحسنت! نستخدم النقطتين الرأسيتين (:) قبل التفصيل أو التوضيح، وليس النقطة.",hint:"تذكّر العلامة التي تأتي قبل التفصيل."},
+  {type:"truefalse",prompt:"صح أم خطأ؟",sentence:"الفاصلة (،) تفصل بين الكلمات في التعداد.",options:["صح","خطأ"],correct:0,explain:"صحيح! الفاصلة تفصل بين الكلمات المتتابعة في التعداد.",hint:"فكّر في كتابة أسماء عدة أشياء."},
+  {type:"matching",prompt:"صِل كل علامة بالاستخدام المناسب لها، ثم اضغط تحقق.",sentence:"توصيل: علامة الترقيم ↔ استخدامها",pairs:[{left:"الفاصلة (،)",right:"الفصل بين كلمات التعداد"},{left:"علامة الاستفهام (؟)",right:"نهاية السؤال"},{left:"النقطتان الرأسيتان (:)",right:"قبل التفصيل أو التوضيح"}],explain:"أحسنت! الفاصلة تفصل عناصر التعداد، والاستفهام ينهي السؤال، والنقطتان تسبقان التفصيل.",hint:"اقرأ وظيفة كل علامة جيدًا."},
+  {type:"matching",prompt:"صِل كل علامة بالاستخدام المناسب لها، ثم اضغط تحقق.",sentence:"توصيل علامات الترقيم",pairs:[{left:"الفاصلة المنقوطة (؛)",right:"بين جملتي السبب والنتيجة"},{left:"النقطة (.)",right:"نهاية الجملة التامة"},{left:"علامتا التنصيص (« »)",right:"تحديد الكلام المنقول"},{left:"علامة الحذف (...) ",right:"كلام محذوف أو غير مكتمل"}],explain:"ممتاز! كل علامة لها استخدام محدد يساعد القارئ على فهم المعنى.",hint:"اربط اسم العلامة بوظيفتها."}
+ ]}
+];
+const $ = id => document.getElementById(id);
+let playerName="البطل", subject="اللغة العربية", levelIndex=0, qIndex=0, score=0, stars=0, lives=3, answered=false, totalAnswered=0;
+const totalQuestions=levels.reduce((n,l)=>n+l.questions.length,0);
+const arabicNum=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const ROSTER_KEY="abtal_alterqeem_roster_v1";
+function readRoster(){
+ try { const data=JSON.parse(localStorage.getItem(ROSTER_KEY)||"[]"); return Array.isArray(data)?data:[]; }
+ catch(e){ return []; }
+}
+function updateRosterNote(){
+ const n=readRoster().length;
+ $("rosterNote").innerHTML=`عدد الأسماء المسجّلة على هذا الجهاز: <strong>${arabicNum(n)}</strong> · يمكنك تحميلها في ملف يفتح ببرنامج Excel.`;
+}
+function registerStudent(name){
+ const clean=(name||"").trim();
+ if(!clean)return;
+ const roster=readRoster();
+ roster.push({name:clean,subject:($("className").value.trim()||"اللغة العربية"),date:new Date().toLocaleString("ar-EG"),score:0,stars:0});
+ try { localStorage.setItem(ROSTER_KEY,JSON.stringify(roster)); } catch(e) {}
+ updateRosterNote();
+}
+function exportRoster(){
+ const roster=readRoster();
+ if(!roster.length){alert("لا توجد أسماء مسجّلة على هذا الجهاز حتى الآن.");return;}
+ const rows=[["اسم الطالب","المادة","تاريخ التسجيل","النقاط","النجوم"],...roster.map(r=>[r.name,r.subject,r.date,r.score,r.stars])];
+ const csv="\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");
+ a.href=url;a.download="سجل_طلاب_أبطال_الترقيم.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+$("exportRosterBtn").addEventListener("click",exportRoster);
+updateRosterNote();
+
+function startGame(){
+ playerName=$("studentName").value.trim()||"البطل";subject=$("className").value.trim()||"اللغة العربية";
+ registerStudent(playerName);
+ $("preparedBy").textContent=playerName;$("intro").classList.add("hidden");$("game").classList.remove("hidden");
+ levelIndex=0;qIndex=0;score=0;stars=0;lives=3;totalAnswered=0;renderLevelList();renderQuestion();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+$("startBtn").addEventListener("click",startGame);
+$("studentName").addEventListener("input",()=>{$("preparedBy").textContent="عبدالرحمن عاطف";});
+function renderLevelList(){
+ $("levelList").innerHTML="";
+ levels.forEach((l,i)=>{
+  const b=document.createElement("button");b.className="level-item"+(i===levelIndex?" active":"")+(i>levelIndex?" locked":"");
+  b.innerHTML=`<span class="level-emoji">${l.emoji}</span><span><b>${arabicNum(i+1)}. ${l.name}</b><small>${i<levelIndex?"✅ تم الاجتياز":i===levelIndex?"أنت هنا":"🔒 أكمل السابق"}</small></span>`;
+  b.disabled=i>levelIndex;
+  b.addEventListener("click",()=>{if(i<=levelIndex){qIndex=0;renderLevelList();renderQuestion();}});
+  $("levelList").appendChild(b);
+ });
+}
+function updateStats(){
+ $("score").textContent=score;$("stars").textContent=stars;$("lives").textContent=lives;
+ const completed=levels.slice(0,levelIndex).reduce((n,l)=>n+l.questions.length,0)+qIndex;
+ const pct=Math.round((completed/totalQuestions)*100);
+ $("progressFill").style.width=pct+"%";$("progressText").textContent=arabicNum(pct)+"٪";
+ $("levelKicker").textContent=`المستوى ${arabicNum(levelIndex+1)} من ${arabicNum(levels.length)}`;
+ $("levelHeading").textContent=levels[levelIndex].name+" "+levels[levelIndex].emoji;
+}
+function renderQuestion(){
+ answered=false;
+ const level=levels[levelIndex],q=level.questions[qIndex];
+ $("questionPanel").classList.remove("hidden");$("resultPanel").classList.add("hidden");
+ $("topicLabel").textContent=level.desc;
+ $("questionCount").textContent=`السؤال ${arabicNum(qIndex+1)} من ${arabicNum(level.questions.length)}`;
+ $("questionPrompt").textContent=q.prompt;$("sentence").textContent=q.sentence;
+ $("hint").textContent="اقرأ الجملة جيدًا قبل الاختيار 👀";
+ $("feedback").className="feedback";$("feedback").textContent="";
+ $("nextBtn").classList.add("hidden");$("nextBtn").textContent=qIndex===level.questions.length-1?(levelIndex===levels.length-1?"عرض النتيجة 🏆":"إنهاء المستوى وفتح التالي 🔓"):"السؤال التالي ←";
+ $("answers").innerHTML="";
+ if(q.type==="matching"){
+  const wrap=document.createElement("div");wrap.className="matching-list";
+  const shuffled=q.pairs.map(p=>p.right).sort(()=>Math.random()-.5);
+  q.pairs.forEach((pair,i)=>{
+   const row=document.createElement("label");row.className="matching-row";
+   const name=document.createElement("span");name.textContent=pair.left;
+   const select=document.createElement("select");select.className="match-select";select.dataset.index=i;select.innerHTML='<option value="">اختر الاستخدام...</option>'+shuffled.map(v=>'<option>'+v+'</option>').join('');
+   row.append(name,select);wrap.appendChild(row);
+  });
+  const check=document.createElement("button");check.className="btn-primary match-check";check.textContent="تحقق من التوصيل ✓";check.addEventListener("click",()=>checkMatching(q,check));
+  $("answers").append(wrap,check);
+ }else{
+  q.options.forEach((opt,i)=>{
+   const b=document.createElement("button");b.className="answer";b.textContent=opt;b.addEventListener("click",()=>chooseAnswer(i,b));$("answers").appendChild(b);
+  });
+ }
+ updateStats();renderLevelList();
+}
+function checkMatching(buttonQuestion,checkButton){
+ if(answered)return;
+ const selects=[...$("answers").querySelectorAll(".match-select")];
+ if(selects.some(x=>!x.value)){ $("feedback").className="feedback show bad";$("feedback").textContent="وصّل كل العلامات أولًا، ثم اضغط تحقق.";return; }
+ answered=true;totalAnswered++;
+ const allCorrect=selects.every((sel,i)=>sel.value===buttonQuestion.pairs[i].right);
+ selects.forEach((sel,i)=>{sel.disabled=true;sel.style.borderColor=sel.value===buttonQuestion.pairs[i].right?"#5bd7ad":"#ff91ad";});checkButton.disabled=true;
+ const feedback=$("feedback");
+ if(allCorrect){score+=10;stars++;feedback.className="feedback show good";feedback.textContent="🎉 ممتاز! كل التوصيلات صحيحة. "+buttonQuestion.explain+" حصلت على ١٠ نقاط ونجمة!";}
+ else {lives=Math.max(0,lives-1);feedback.className="feedback show bad";feedback.textContent="محاولة جيدة! راجع التوصيلات الصحيحة: "+buttonQuestion.pairs.map(p=>p.left+" ← "+p.right).join("؛ ")+". "+buttonQuestion.explain;}
+ $("hint").textContent=allCorrect?"أحسنت يا "+playerName+"! 🌟":"تذكّر: "+buttonQuestion.hint;
+ $("nextBtn").classList.remove("hidden");updateStats();celebrate(allCorrect);
+}
+function chooseAnswer(i,button){
+ if(answered)return;
+ const q=levels[levelIndex].questions[qIndex];answered=true;totalAnswered++;
+ const buttons=[...$("answers").querySelectorAll("button")];buttons.forEach(b=>b.disabled=true);
+ const feedback=$("feedback");
+ if(i===q.correct){
+  button.classList.add("correct");score+=10;stars++;feedback.className="feedback show good";feedback.textContent="🎉 "+q.explain+" حصلت على ١٠ نقاط ونجمة!";
+  $("hint").textContent="أحسنت يا "+playerName+"! استمر في التقدّم 🌟";
+ }else{
+  button.classList.add("wrong");buttons[q.correct].classList.add("correct");lives=Math.max(0,lives-1);
+  feedback.className="feedback show bad";feedback.textContent="ولا يهمك! 💪 الإجابة الصحيحة هي: "+q.options[q.correct]+". "+q.explain;
+  $("hint").textContent="التعلّم بالمحاولة! تذكّر التلميح: "+q.hint;
+ }
+ $("nextBtn").classList.remove("hidden");updateStats();celebrate(i===q.correct);
+}
+function celebrate(big){
+ const container=$("confetti");const pieces=big?["⭐","✨","🎉","🌟","🟡"]:["💜","✨"];
+ for(let i=0;i<(big?22:8);i++){const s=document.createElement("span");s.textContent=pieces[Math.floor(Math.random()*pieces.length)];s.style.left=Math.random()*100+"%";s.style.animationDelay=Math.random()*.5+"s";container.appendChild(s);setTimeout(()=>s.remove(),3000);}
+}
+$("nextBtn").addEventListener("click",()=>{
+ if(!answered)return;
+ if(qIndex<levels[levelIndex].questions.length-1){qIndex++;renderQuestion();return;}
+ if(levelIndex<levels.length-1){
+  levelIndex++;qIndex=0;score+=20;stars+=2;renderLevelList();renderQuestion();
+  $("feedback").className="feedback show good";$("feedback").textContent="🏅 مبروك! اجتزت المستوى وحصلت على ٢٠ نقطة إضافية ونجمتين!";
+  celebrate(true);
+ }else showResult();
+});
+function showResult(){
+ try {
+  const roster=readRoster();
+  for(let i=roster.length-1;i>=0;i--){if(roster[i].name===playerName){roster[i].score=score;roster[i].stars=stars;localStorage.setItem(ROSTER_KEY,JSON.stringify(roster));break;}}
+  updateRosterNote();
+ } catch(e) {}
+ $("questionPanel").classList.add("hidden");$("resultPanel").classList.remove("hidden");
+ const maxScore=totalQuestions*10+(levels.length-1)*20;
+ const percent=Math.round(score/maxScore*100);
+ const badge=percent>=85?"🥇 بطل الترقيم الخارق":percent>=60?"🥈 خبير علامات الترقيم":"🌱 متدرّب شجاع";
+ $("resultPanel").innerHTML=`<div class="result-emoji">${percent>=85?"🏆":percent>=60?"🎉":"💪"}</div><h2>أحسنت يا ${escapeHtml(playerName)}!</h2><p>أنهيت رحلة علامات الترقيم. كل محاولة ساعدتك تتعلم أكثر، ودي أهم مكافأة!</p><div class="result-score">⭐ مجموع النقاط: ${arabicNum(score)}</div><div class="result-score">🌟 النجوم: ${arabicNum(stars)}</div><p><strong>${badge}</strong><br>نسبة النقاط: ${arabicNum(percent)}٪</p><button class="btn-primary" id="restartBtn">العب من جديد 🔁</button> <button class="btn-secondary" id="homeBtn">الصفحة الرئيسية 🏠</button>`;
+ $("restartBtn").addEventListener("click",startGame);$("homeBtn").addEventListener("click",()=>{ $("game").classList.add("hidden");$("intro").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});});
+ $("progressFill").style.width="100%";$("progressText").textContent="١٠٠٪";celebrate(true);window.scrollTo({top:0,behavior:"smooth"});
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+</script>
+</body>
+</html>
